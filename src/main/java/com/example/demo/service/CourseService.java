@@ -47,12 +47,14 @@ public class CourseService {
 
     public courses updateCourse(Long id, courses courseDetails) throws ResourceNotFoundException {
         courses course = courseRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Course not found for this id :: " + id));
-        student student = studentRepository.findById(courseDetails.getStudent().getId()).orElseThrow( () -> new ResourceNotFoundException("Student not found!"));
-        instructor instructor = instructorRepository.findById(courseDetails.getInstructor().getId()).orElseThrow(() -> new ResourceNotFoundException("Instructor not found!"));
+        student student = studentRepository.findById(courseDetails.getStudent().getIdStudent()).orElseThrow( () -> new ResourceNotFoundException("Student not found!"));
+        instructor instructor = instructorRepository.findById(courseDetails.getInstructor().getIdInstructor()).orElseThrow(() -> new ResourceNotFoundException("Instructor not found!"));
 
-        student= new student(courseDetails.getStudent().getUsername(), courseDetails.getStudent().getEmail(), courseDetails.getStudent().getPassword(), courseDetails.getStudent().getName(), courseDetails.getStudent().getSurname(), courseDetails.getStudent().getStudyLevel());
-        instructor= new instructor(courseDetails.getInstructor().getUsername(), courseDetails.getInstructor().getEmail(), courseDetails.getInstructor().getPassword(), courseDetails.getInstructor().getName(), courseDetails.getInstructor().getSurname(), courseDetails.getInstructor().getSpeciality());
 
+        //student= new student(courseDetails.getStudent().getUsername(), courseDetails.getStudent().getEmail(), courseDetails.getStudent().getPassword(), courseDetails.getStudent().getName(), courseDetails.getStudent().getSurname(), courseDetails.getStudent().getStudyLevel());
+        //studentRepository.save(student);
+        //instructor= new instructor(courseDetails.getInstructor().getUsername(), courseDetails.getInstructor().getEmail(), courseDetails.getInstructor().getPassword(), courseDetails.getInstructor().getName(), courseDetails.getInstructor().getSurname(), courseDetails.getInstructor().getSpeciality());
+        //instructorRepository.save(instructor);
         course.setTitre(courseDetails.getTitre());
         course.setDescription(courseDetails.getDescription());
         course.setAuteur(courseDetails.getAuteur());

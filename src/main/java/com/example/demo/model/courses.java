@@ -15,8 +15,9 @@ public class courses {
     private String titre;
     private String auteur;
     private String matiere;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime dateAjout;
+
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	private LocalDateTime dateAjout;
     private String description;
     private int nbHeures;
 
@@ -63,11 +64,13 @@ public class courses {
 		// TODO Auto-generated constructor stub
 	}
 
-	@ManyToOne(fetch= FetchType.EAGER)
+	//@ManyToOne(fetch= FetchType.EAGER)
+	@ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="student_id")
     student student;
 
-    @ManyToOne(fetch= FetchType.EAGER)
+    //@ManyToOne(fetch= FetchType.EAGER)
+	@ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="instructor_id")
     instructor instructor;
 
