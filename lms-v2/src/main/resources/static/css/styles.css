@@ -1,0 +1,38 @@
+/* Slideshow container styles */
+.slideshow-container {
+    display: flex;
+    overflow: hidden;
+}
+
+/* Slide styles */
+.slide {
+    display: none;
+}
+
+/* Navigation styles */
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+/* Button styles */
+.prev-btn,
+.next-btn {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Remove default outline for buttons */
+.prev-btn:focus,
+.next-btn:focus {
+    outline: none;
+}
+
+/* Apply some margin between the buttons */
+.next-btn {
+    margin-left: 1rem;
+}
